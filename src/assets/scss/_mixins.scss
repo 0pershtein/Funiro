@@ -1,0 +1,26 @@
+@mixin breakpoint ($bp) {
+	@media (max-width: $bp) {
+		@content;
+	}
+};
+
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+	@if $type == 1 {
+		// Только Если Меньше Контейнера
+		#{$property}: $startSize + px;
+		@media (max-width: #{$max-widthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-widthContainer - 320}));
+		}
+	} @else if $type == 2 {
+		// Только Если Больше Контейнера
+		#{$property}: $startSize + px;
+		@media (min-width: #{$max-widthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width - 320}));
+		}
+	} @else {
+		// Всегда
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width - 320}));
+	}
+}
+

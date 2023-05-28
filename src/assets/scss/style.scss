@@ -1,0 +1,38 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+// Base
+@import "reset";
+@import "vars";
+@import "mixins";
+
+html {
+	font-size: 16px;
+}
+
+body {
+	background-color: #F9F1E7;
+	font-family: 'Roboto', sans-serif;
+	color: $mainColor;
+
+		&.no-scroll {
+			overflow: hidden;
+		}
+}
+
+// Bases-classesssssssss
+
+._footer-title {
+	font-weight: 700;
+	@include adaptive-value("font-size", 24, 20, 1);
+	line-height: 29/24 * 100%;
+	color: black;
+}
+
+
+
+/* Blocks */
+@import "blocks/container";
+@import "blocks/header";
+@import "blocks/burger";
+@import "blocks/footer";
