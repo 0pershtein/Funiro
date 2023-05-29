@@ -43,6 +43,17 @@ window.onload = function () {
             document.querySelector('.burger').classList.toggle('active')
             document.querySelector('.menu__body').classList.toggle('_active')
         }
+
+        if(window.innerWidth < 768) {
+            if(targetElement.classList.contains('menu-footer__column') || targetElement.classList.contains('menu-footer__title') || targetElement.closest('.menu-footer__column')) {
+                targetElement.closest('.menu-footer__column').classList.toggle('_active')
+            } else if (!targetElement.closest('.menu-footer__column') && document.querySelectorAll('.menu-footer__column._active').length > 0) {
+                let rmv = document.querySelectorAll('.menu-footer__column')
+                rmv.forEach(item => {
+                    item.classList.remove('_active');
+                })
+            }
+        }
     }
 }
 
