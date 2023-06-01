@@ -22,15 +22,18 @@
         "gulp-sass": "^5.0.0",
         "gulp-strip-css-comments": "^2.0.0",
         "gulp-uglify": "^3.0.2",
+        "ismobilejs": "^1.1.1",
         "panini": "^1.7.2",
         "sass": "^1.43.4",
         "webpack": "^5.64.3",
-        "webpack-stream": "^7.0.0",
-        "ismobilejs": "^1.1.1"
+        "webpack-stream": "^7.0.0"
     },
     "browserslist": [
         "last 1 version",
         "> 1%",
         "IE 10"
-    ]
+    ],
+    "dependencies": {
+        "swiper": "^9.3.2"
+    }
 }

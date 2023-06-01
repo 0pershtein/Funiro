@@ -3,6 +3,29 @@
     width: 100%;
     top: 0;
     left: 0;
+    min-height: 40px;
+
+    @media (max-width: 768px) {
+        min-height: 5px;
+    }
+
+    &._scroll {
+        .header__wrapper {
+           background-color: rgba(#fff, 0.5);
+
+           &:hover {
+            background-color: rgba(#fff, 0.9);
+           }
+        }
+        
+        .header__body {
+            min-height: 70px;
+            transition: min-height 0.3s ease 0s;
+            @media(max-width: 768px) {
+                min-height: 50px;
+            }
+        }
+    }
 }
 .header__wrapper {
     position: fixed;
@@ -10,6 +33,8 @@
     top: 0;
     left: 0;
     z-index: 50;
+
+    transition: all 0.3s ease 0s;
 }
 .header__container {
 }
@@ -311,10 +336,13 @@
     font-size: 15px;
     width: 100%;
 
+    transition: border 0.3s ease 0s;
+
     &::placeholder {
         color: $greyColor;
         font-size: 14px;
         line-height: 21/14 * 100%;
+        transition: all 0.3s ease 0s;
     }
 }
 .header__actions {

@@ -1,5 +1,45 @@
+import Swiper from 'swiper/bundle';
+import { useDynamicAdapt } from './dynamicAdapt';
+
+if(document.querySelector('.swiper')) {
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        speed: 800,
+        slidesPerView: 1,
+        spaceBetween: 32,
+        parallax: true,
+        observer: true,
+        observerParents: true,
+        watchOverflow: true,
+        loopAdditionalSlides: 5,
+        preloadImages: false,
+      
+        // If we need pagination
+        pagination: {
+          el: '.controls-slider-main__dotts',
+          clickable: true,
+        },
+      
+        // Navigation arrows
+        navigation: {
+          nextEl: '.slider-main .slider-arrow__next',
+          prevEl: '.slider-main .slider-arrow__prev',
+        },
+      
+        // And if we need scrollbar
+        // scrollbar: {
+        //   el: '.swiper-scrollbar',
+        // },
+      });
+    
+}
+
+useDynamicAdapt();
 
 window.onload = function () {
+    
     document.addEventListener('click', documentActions);
 
     //Actions (делегирование события click)
@@ -55,6 +95,21 @@ window.onload = function () {
             }
         }
     }
+
+
+    // Header
+    const headerElement = document.querySelector('.header');
+
+    const callback = function(entries, observer) {
+        if (entries[0].isIntersecting) {
+            headerElement.classList.remove('_scroll')
+        } else {
+            headerElement.classList.add('_scroll')
+        }
+    }
+
+    const headerObserver = new IntersectionObserver(callback);
+    headerObserver.observe(headerElement)
 }
 
 

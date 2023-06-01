@@ -11,7 +11,7 @@ html {
 }
 
 body {
-	background-color: #F9F1E7;
+	// background-color: #F9F1E7;
 	font-family: 'Roboto', sans-serif;
 	color: $mainColor;
 
@@ -29,6 +29,31 @@ body {
 	color: black;
 }
 
+.none {
+	display: none;
+}
+
+._title {
+	font-weight: 700;
+	@include adaptive-value("font-size", 40, 25, 1);
+	line-height: 120%;
+	text-align: center;
+
+	margin: 0px 0px 32px/40px * 1em 0px;
+}
+
+[class*="-ibg"] {
+	position: relative;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+
 
 
 /* Blocks */
@@ -36,3 +61,8 @@ body {
 @import "blocks/header";
 @import "blocks/burger";
 @import "blocks/footer";
+@import "swiper-bundle";
+@import "blocks/btn";
+@import "blocks/page";
+@import "blocks/advantages";
+@import "blocks/products";

@@ -1,0 +1,21 @@
+._btn {
+    display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 15px;
+        transition: all 0.3s ease 0s;
+        min-height: 48px;
+
+    &._white {
+        color: $orangeColor;
+        padding: 12px 59px;
+        transition: all 0.3s ease 0s;
+        background-color: #ffffff;
+
+        &:hover {
+            color: #fff;
+            background-color: $orangeColor;
+        }
+    }
+}
