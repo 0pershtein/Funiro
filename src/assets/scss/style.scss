@@ -55,6 +55,25 @@ body {
 }
 
 
+._flyImage.-ibg {
+	position: fixed;
+	opacity: 1;
+	z-index: 1000;
+	transition: all 1s ease 0s;
+}
+
+.page {
+	overflow: hidden;
+}
+
+
+// ._hold {
+// 		color: black;
+// 		background-color: $greyLightColor;
+// 		cursor: not-allowed;
+// }
+
+
 
 /* Blocks */
 @import "blocks/container";
@@ -66,3 +85,5 @@ body {
 @import "blocks/page";
 @import "blocks/advantages";
 @import "blocks/products";
+@import "blocks/cart";
+@import "blocks/furniture";

@@ -1,0 +1,138 @@
+.furniture {
+    @include adaptive-value("padding-bottom", 85, 40, 1);
+    // .furniture__container
+
+    &__container {
+    }
+
+    // .furniture__label
+
+    &__label {
+        @include adaptive-value("font-size", 20, 16, 1);
+        font-weight: 600;
+        line-height: 150%;
+        color: $greyColor;
+        text-align: center;
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+
+    // .furniture__title
+
+    &__title {
+        margin-bottom: 32px/40px * 1em;
+    }
+
+    // .furniture__body
+
+    &__body {
+        position: relative;
+
+        @media(any-hover: none) {
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    }
+
+    // .furniture__items
+
+    &__items {
+        display: grid;
+        grid-template-columns: auto;
+        grid-auto-flow: column;
+        align-items: center;
+        gap: 16px;
+
+        @media(any-hover: none) {
+           justify-content: space-between;
+        }
+    }
+
+    // .furniture__column
+
+    &__column {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 0 -8px;
+
+        &:first-child {
+            align-items: flex-end;
+        }
+    }
+
+    // .furniture__row
+
+    &__row {
+        display: inline-grid;
+        padding: 0 8px;
+        gap: 16px;
+        grid-template-columns: auto;
+        grid-auto-flow: column;
+
+
+        &:not(:last-child) {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.row-furniture {
+
+    // .row-furniture__left-top
+
+    &__left-top {
+        align-items: flex-end;
+        justify-content: end;
+    }
+
+    // .row-furniture__item
+
+    &__item {
+        img {
+            max-width: none;
+            height: none;
+        }
+        @media(any-hover: hover) {
+            img {
+                transition: all 0.8s ease 0s;
+                filter: grayscale(1);
+            }
+            
+            &:hover {
+                img {
+                    filter: grayscale(0);
+                }
+            }
+        }
+    }
+
+    // .row-furniture__left-bottom
+
+    &__left-bottom {
+        align-items: flex-start;
+        justify-content: end;
+    }
+
+    // .row-furniture__center
+
+    &__center {
+        justify-content: center;
+        align-items: center;
+    }
+
+    // .row-furniture__right-top
+
+    &__right-top {
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
+
+    // .row-furniture__right-bottom
+
+    &__right-bottom {
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}

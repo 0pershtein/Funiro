@@ -28,21 +28,24 @@ const path = {
         js:     distPath + "assets/js/",
         css:    distPath + "assets/css/",
         images: distPath + "assets/images/",
-        fonts:  distPath + "assets/fonts/"
+        fonts:  distPath + "assets/fonts/",
+        json: distPath + "assets/json"
     },
     src: {
         html:   srcPath + "*.html",
         js:     srcPath + "assets/js/*.js",
         css:    srcPath + "assets/scss/*.scss",
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
-        fonts:  srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}"
+        fonts:  srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
+        json: srcPath + "assets/json/*"
     },
     watch: {
         html:   srcPath + "**/*.html",
         js:     srcPath + "assets/js/**/*.js",
         css:    srcPath + "assets/scss/**/*.scss",
         images: srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
-        fonts:  srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}"
+        fonts:  srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}",
+        json: srcPath + "assets/json/*"
     },
     clean: "./" + distPath
 }
@@ -57,6 +60,12 @@ function serve() {
             baseDir: "./" + distPath
         }
     });
+}
+
+function json() {
+    return src(path.src.json)
+    .pipe(plumber())
+    .pipe(dest(path.build.json)) 
 }
 
 function html(cb) {
@@ -210,9 +219,10 @@ function watchFiles() {
     gulp.watch([path.watch.js], jsWatch);
     gulp.watch([path.watch.images], images);
     gulp.watch([path.watch.fonts], fonts);
+    gulp.watch([path.watch.json], json);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts));
+const build = gulp.series(clean, gulp.parallel(html, css, js, json, images, fonts));
 const watch = gulp.parallel(build, watchFiles, serve);
 
 
@@ -221,6 +231,7 @@ const watch = gulp.parallel(build, watchFiles, serve);
 exports.html = html;
 exports.css = css;
 exports.js = js;
+exports.json = json;
 exports.images = images;
 exports.fonts = fonts;
 exports.clean = clean;
